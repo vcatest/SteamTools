@@ -12,6 +12,9 @@ jobs:
     container: ubuntu:20.04
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: recursive # Fetches all submodules
+        fetch-depth: 0        # Required by SonarCloud for accurate analysis
     
     - name: Install dependencies (curl, wget, libssl1.1)
       run: |
